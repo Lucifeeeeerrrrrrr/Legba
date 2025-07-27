@@ -1,0 +1,3 @@
+# CapsLk, Snap
+
+crie o snip para trocar o CapsLk por ctrl e que se mantenha no meu linux manaro a cada boot. Quero que desative o CapsLk e deixe no lugar o ctrl. Quero que a cada boot ele se autoconfigura. e no terminal que quero que crie o snap e configure o container seguro para instalacao de apps, explique no final cada coisa de forma tecnica, detalhada e acessivel com analogias de como o meu cerebro funciona para performance HPC. quero que o meu linux defina um sistema reptiliano e imutavel com todas as configuracoes que pedi. preciso instalar a versao mais recente. me de cada prompt separado para eu aprender.
