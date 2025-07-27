@@ -200,13 +200,4 @@ Esse processador tem **4 threads, cache L3 4 MiB, suporte AVX2**, rodando em *
 ***
 
 ```
-"""Explique
-Udevmon se inspirando em HPC neurocognitivo como ele funciona
-Cache MIME e o que significa esse acronimo
-D-Bus e como ele funciona baseado em HPC neurocognitivo
-apparmor, snapd.socket | Quero que explique detalhadamente
-Cache L3 4 MiB, AVX2, Little Endian, arquitetura 64-bit e virtualizacao VT-x | Explique cada fragmento de informacao
-Snap confinement | Explique com HPC neurocognitivo
-OverlayFS estilo NixOS | Explique seguindo os padroes
-"""
 ```
