@@ -51,3 +51,31 @@ sudo sed -i 's/GRUB_CMDLINE_LINUX="\(.*\)"/GRUB_CMDLINE_LINUX="\1 apparmor=1 sec
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
+```bash
+sudo mount /dev/sdXn /mnt  # substitua sdXn pela partição
+
+cd /mnt
+
+sudo btrfs subvolume create @
+sudo btrfs subvolume create @home
+sudo btrfs subvolume create @snapshots
+sudo btrfs subvolume create @home_snapshots
+
+sudo umount /mnt
+
+UUID=$(blkid -s UUID -o value /dev/sdXn)  # substitua sdXn pela partição
+
+cat <<EOF | sudo tee -a /etc/fstab
+UUID=$UUID  /               btrfs  subvol=@,compress=zstd,noatime,commit=120  0 0
+UUID=$UUID  /home           btrfs  subvol=@home,compress=zstd,noatime,commit=120  0 0
+UUID=$UUID  /.snapshots     btrfs  subvol=@snapshots,compress=zstd,noatime,commit=120  0 0
+UUID=$UUID  /home/.snapshots btrfs subvol=@home_snapshots,compress=zstd,noatime,commit=120  0 0
+EOF
+
+
+sudo snapper -c root create-config /
+sudo snapper -c home create-config /home
+
+sudo pacman -S snapper snap-pac --noconfirm
+
+```
